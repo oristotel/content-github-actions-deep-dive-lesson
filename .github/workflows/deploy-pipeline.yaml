@@ -68,6 +68,10 @@ jobs:
         uses: actions/checkout@v2
       - name: create docs folder
         run: mkdir docs
+      - name: Restart svc
+        run: |
+            sudo ./svc.sh stop
+            sudo ./svc.sh start
       - name: convert md to html
         uses: docker://pandoc/core:2.9
         with: 
